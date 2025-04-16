@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeyZee Visas - Visa Payment Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern CSS Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #9089f7 0%, #7367f0 100%);
+            /* padding: 15px 0; */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #5648ce;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(86, 72, 206, 0.3);
+        }
+
+        .contact:hover {
+            background-color: #473dab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(86, 72, 206, 0.4);
+        }
+
+        .contact i {
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .iframe-container {
+
+            height: 100vh;
+
+        }
+
+        iframe {
+            width: 70%;
+            justify-content: center;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #9089f7 0%, #7367f0 100%);
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            justify-content: space-around;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 40px;
+            background-color: #ffffff;
+        }
+
+        .footer-col ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .address p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .address i {
+            margin-top: 5px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .footer-countries {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .footer-countries h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .country-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .country-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .country-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: 10px;
+            }
+
+            .contact {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+
+            .iframe-container {
+                height: 70vh;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .iframe-container {
+                height: 60vh;
+            }
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 500;
+            color: #5d5ff0;
+            text-align: center;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+
+        h1 .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: transparent;
+            color: #25D366;
+            padding: 0;
+            margin: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            text-decoration: underline;
+            border: none;
+            transition: color 0.3s ease;
+        }
+
+        h1 .whatsapp-button i {
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+        h1 .whatsapp-button:hover {
+            color: #128C7E;
+            text-decoration: none;
+        }
+
+        /* Cookie consent styling - positioned at top */
+        .cookie-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #9089f7 0%, #7367f0 100%);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            z-index: 1001;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-button {
+            background-color: #5648ce;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(86, 72, 206, 0.3);
+            margin-left: 15px;
+        }
+
+        .cookie-button:hover {
+            background-color: #473dab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(86, 72, 206, 0.4);
+        }
+
+        /* GDPR consent styling - positioned at top */
+        #gdpr-thing {
+            position: fixed;
+            top: 70px;
+            /* Position below header */
+            right: 20px;
+            background: linear-gradient(135deg, #9089f7 0%, #7367f0 100%);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        #gdpr-thing a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        #consent-button {
+            display: inline-block;
+            background-color: #5648ce;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 5px 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(86, 72, 206, 0.3);
+            margin-left: 5px;
+        }
+
+        #consent-button:hover {
+            background-color: #473dab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(86, 72, 206, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Google Tag Manager (noscript) -->
+
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZGFW4FB" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">
+                    <img src="/VisaImages/destinations/Teyzee_logo_240w_500h.jpeg" alt="TeyZee Visas Logo">
+                </a>
+            </div>
+            <div class="header-actions">
+                <a href="https://wa.me/919029027420" class="contact">
+                    <i class="fab fa-whatsapp"></i> Chat with us
+                </a>
+                <a href="tel:919029027420" class="contact">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <h1>
+        <a href="https://wa.me/919029027420" class="whatsapp-button">
+            Chat with us on whatsapp
+        </a> <br>for help with filling the form.
+        <!-- start of concent banner -->
+        <div class="cookie-banner" style="display: block;">
+            <p>We use cookies to ensure you get the best experience on our website. <a href=“/cookie-policy”>Learn
+                    More</a></p>
+            <button class=“cookie-button”>Accept</button>
+        </div>
+
+        <div id="gdpr-thing">
+            <!-- By using this website, you consent to privacy policies mentionned on  -->
+            <!-- href pending for privacy.html -->
+            <a href=“#”>this page</a> [ <a id=“consent-button” href=“#”>Ok</a> ]
+        </div>
+    </h1>
+    <main>
+
+        <div class="container">
+            <div class="iframe-container">
+                <iframe height=‘500px’ width=‘100%’ frameborder=‘0’ allowTransparency=‘true’ scrolling=‘auto’
+                    src=‘https://creatorapp.zohopublic.com/indiacarz/teyzee-visas/page-embed/TeyZee_Visas_Payment_Page/BQaqASYjQkPEMDU790K1heYbS6h6V1Q3qQnFsd5eTdjf8DUkxens2ZP0jWv0uGp1hQ7ydsrZQP5GO1hKztTAyOWzufmbe7HHXP8G’>
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+</body>
+<script type=“text/javascript”>
+    // On page load
+      window.addEventListener('load', (event) => {
+          // Check if already accepted before, hide banner
+          if (localStorage.getItem('gdpr-accept')==='ok'){
+              document.getElementById(“gdpr-thing”).style.display=‘none’;
+          }
+        // If accept, hide banner and remeber choice
+        document.getElementById("consent-button").onclick = function() {
+          document.getElementById(“gdpr-thing”).style.display=‘none’;
+          localStorage.setItem(‘gdpr-accept’, ‘ok’);
+        };
+      });
+  </script>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Our Locations</h3>
+                <div class="address">
+                    <p><i class="fas fa-map-marker-alt"></i> A-302, RG City Centre, DB Gupta Road, Delhi 110011</p>
+                </div>
+                <div class="address">
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai - WeWork Platinum, Marol, Mumbai, Maharashtra,
+                        400059</p>
+                </div>
+                <a href="https://wa.me/919029027420" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Chat with us
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h3>About TeyZee</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Our Blogs</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Policies</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Refund Policy</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Cancellation Policy</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Pricing</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-countries">
+            <h3>Popular Visa Destinations</h3>
+            <div class="country-links">
+                <a href="#">France</a> •
+                <a href="#">Italy</a> •
+                <a href="#">Germany</a> •
+                <a href="#">Switzerland</a> •
+                <a href="#">Greece</a> •
+                <a href="#">Spain</a> •
+                <a href="#">Portugal</a> •
+                <a href="#">Netherlands</a> •
+                <a href="#">Belgium</a> •
+                <a href="#">Austria</a> •
+                <a href="#">Sweden</a> •
+                <a href="#">Denmark</a> •
+                <a href="#">Finland</a> •
+                <a href="#">Norway</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2025 TeyZee Visas. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // On page load
+window.addEventListener('load', (event) => {
+    // Handle cookie consent
+    const cookieConsentBanner = document.querySelector('.cookie-banner');
+    const cookieButton = document.querySelector('.cookie-button');
+    
+    // Check if cookie consent was already accepted
+    if (localStorage.getItem('cookie-accept') === 'ok') {
+        if (cookieConsentBanner) {
+            cookieConsentBanner.style.display = 'none';
+        }
+    }
+    
+    // Handle cookie consent button click
+    if (cookieButton) {
+        cookieButton.addEventListener('click', function() {
+            cookieConsentBanner.style.display = 'none';
+            localStorage.setItem('cookie-accept', 'ok');
+        });
+    }
+    
+    // Handle GDPR consent
+    const gdprThing = document.getElementById("gdpr-thing");
+    const consentButton = document.getElementById("consent-button");
+    
+    // Check if GDPR consent was already accepted
+    if (localStorage.getItem('gdpr-accept') === 'ok') {
+        if (gdprThing) {
+            gdprThing.style.display = 'none';
+        }
+    }
+    
+    // Handle GDPR consent button click
+    if (consentButton) {
+        consentButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            gdprThing.style.display = 'none';
+            localStorage.setItem('gdpr-accept', 'ok');
+        });
+    }
+});
+</script>
+</html>
