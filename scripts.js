@@ -273,3 +273,62 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+ // Add smooth scrolling for anchor links
+ document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            // Offset for sticky navigation
+            const navHeight = document.querySelector('.sticky-nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update active class
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});
+
+// Highlight active navigation item based on scroll position
+window.addEventListener('scroll', function() {
+    const sections = [
+        document.querySelector('#tourist-visa'),
+        document.querySelector('#business-visa'),
+        document.querySelector('#visa-process'),
+        document.querySelector('#document-checklist'),
+        document.querySelector('#info-section')
+    ];
+    
+    let currentSection = '';
+    const scrollPosition = window.scrollY + document.querySelector('.sticky-nav').offsetHeight + 50;
+    
+    sections.forEach(section => {
+        if (section) {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                currentSection = '#' + section.getAttribute('id');
+            }
+        }
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === currentSection) {
+            link.classList.add('active');
+        }
+    });
+});
