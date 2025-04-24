@@ -1,0 +1,510 @@
+/* TeyZee Visas - Login Page Styles */
+
+:root {
+    --primary-blue: #0057D9;
+    --primary-blue-hover: #0046B5;
+    --light-bg: #F5F8FF;
+    --text-dark: #1E2A39;
+    --text-gray: #5A6B7F;
+    --border-light: #E1E8F5;
+    --error-red: #d9534f;
+    --success-green: #2BAD60;
+    --white: #FFFFFF;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+}
+
+.chat-btn {
+    background-color: #E6F0E8;
+    color: #25D366;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chat-btn:hover {
+    background-color: #D4E8D8;
+}
+
+/* Page Layout */
+.page-layout {
+    display: flex;
+    min-height: calc(100vh - 62px);
+}
+
+/* Testimonial Area */
+.testimonial-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 500px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-tag {
+    display: inline-block;
+    background-color: #FFF9D6;
+    color: #6B571A;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.testimonial-content {
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    font-size: 16px;
+    margin-bottom: 2px;
+    color: var(--text-dark);
+}
+
+.author-info p {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.approval {
+    color: var(--success-green);
+    font-weight: 500;
+}
+
+.stars {
+    color: #FFC107;
+}
+
+.google-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-gray);
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-blue);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Login Area */
+.login-area {
+    width: 480px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.03);
+}
+
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-header img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.login-header p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.country-code {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.country-flag {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 87, 217, 0.1);
+}
+
+input[type="tel"] {
+    padding-left: 70px;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue-hover);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.terms {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 16px;
+}
+
+.terms a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+    color: var(--error-red);
+    font-size: 12px;
+    margin-top: 6px;
+    display: block;
+}
+
+/* OTP Form Specific Styles */
+.otp-form .form-group {
+    margin-bottom: 30px;
+}
+
+.otp-input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.otp-input-group input {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+.resend-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.timer {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}
+
+.resend-btn:disabled {
+    color: var(--text-gray);
+    cursor: not-allowed;
+}
+
+/* Notification styles */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    padding: 15px 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    animation: slideIn 0.3s forwards;
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-green);
+    color: var(--text-dark);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-red);
+    color: var(--text-dark);
+}
+
+.notification.hide {
+    animation: slideOut 0.3s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .page-layout {
+        flex-direction: column;
+    }
+    
+    .login-area {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        box-shadow: none;
+    }
+    
+    .testimonial-area {
+        padding: 30px 20px;
+        align-items: center;
+    }
+    
+    .heading {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .testimonial-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 24px;
+    }
+    
+    .login-area {
+        padding: 30px 20px;
+    }
+    
+    .login-header img {
+        width: 50px;
+    }
+    
+    .ratings {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .otp-input-group input {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .resend-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
